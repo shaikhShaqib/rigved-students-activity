@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web Layout</title>
+    <style>
+        * {
+            box-sizing: content-box;
+        }
+
+        .header {
+            padding: 2%;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .sidebarLeft {
+            width: 200px;
+            height: 350px;
+            float: left;
+            text-align: left;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .sidebarRight {
+            float: left;
+            width: 200px;
+            height: 350px;
+            text-align: right;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .main {
+            float: left;
+            width: 920px;
+            height: 350px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+
+        }
+
+        .footer {
+            text-align: center;
+            background-color: black;
+            color: white;
+            margin-top: 5px;
+            padding: 2%;
+            height: 10px;
+        }
+
+        .nav {
+            width: auto;
+            height: 2%;
+            padding: 2%;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>welcome to My Page</h1>
+    </div>
+    <div class="nav">
+        <a href="#" style="color: white;">link1</a> / <a href="#" style="color: white;">link2</a>
+    </div>
+    <section>
+        <div class="sidebarLeft">
+            <p>This is a sidebar</p>
+        </div>
+        <div class="main">
+            <p>this is main content</p>
+        </div>
+        <div class="sidebarRight">
+            <p>This is a sidebar on right</p>
+        </div>
+    </section>
+    <div class="footer">
+        <p>This is a footer</p>
+    </div>
+</body>
+
+</html>
