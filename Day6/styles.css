@@ -1,0 +1,22 @@
+.heading {
+    color: blue;
+}
+.subHeading {
+    color: red;
+}
+@media (max-width: 400px) {
+    .heading {
+        color: yellow;
+    }
+    .subHeading {
+        color: brown;
+    }
+}
+@media print {
+    .heading {
+        color: black;
+    }
+    .subHeading {
+        color: black;
+    }
+}

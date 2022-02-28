@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.item1 {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+.item2 {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+.item3 {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+.container > div {
+    padding: 5px;
+}
+@media (max-width: 400px) {
+    .container{
+        flex-direction: row;
+    }
+}
