@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Printing largest and smallest number among an array</h1>
+    <script type="text/javascript">
+        var arr = [10,20,1,-3,45,30];
+        var small= arr[0];
+        var larg= arr[0];
+        for(i=0; i <= arr.length; i++){
+            if(arr[i] >= larg){
+                larg = arr[i];
+            }
+        }
+        for(i=0; i <= arr.length; i++){
+            if(arr[i] <= small){
+                small = arr[i]; 
+            }
+        }
+        document.write("smallest number: "+small+"<br/>");
+        document.write("largest number: "+larg+"<br/>");
+    </script>
+</body>
+</html>
