@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Switch prgm</h1>
+    <script type="text/javascript">
+        var option = 3;
+        switch(option) {
+            case 1:
+            document.write("<p>OPTION 1</p>");
+            break;
+            case 2:
+            document.write("<p>OPTION 2</p>");
+            break;
+            case 3:
+            document.write("<p>OPTION 3</p>");
+            break;
+            case 4:
+            document.write("<p>OPTION 4</p>");
+            break;
+            default:
+            document.write("<p>INVALID OPTION</p>");
+        }
+        document.write("<p>We can use string in switch:");
+        
+        var x = "withdraw";
+        switch(x) {
+            case "withdraw":
+            document.write("<p>withdraw</p>");
+            break;
+            case "check":
+            document.write("<p>check</p>");
+            break;
+            case "balance":
+            document.write("<p>balance</p>");
+            break;
+            case "exit":
+            document.write("<p>exit</p>");
+            break;
+            default:
+            document.write("<p>INVALID STRING</p>");
+        }
+    </script>
+</body>
+</html>

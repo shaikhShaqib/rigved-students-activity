@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Function ex</h1>
+    <button onclick="greeting()">Button1</button>
+    <button onclick="hello('alex')">Button2</button>
+    <button onclick="hello()">Button3</button>
+    <script type="text/javascript">
+        function greeting() {
+            alert("This is greeting.");
+        }
+        function hello(name) {
+            alert("This is hello: "+name);
+        }
+    </script>
+    <p>This is a function outside html</p>
+    <button onclick="add(3,5)">add</button>
+    <script type="text/javascript" src="external_function.js"></script>
+</body>
+</html>

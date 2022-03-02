@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function validateForm() {
+            var f = document.validate.first.value;
+            var l = document.validate.last.value;
+            var pass = document.validate.password.value;
+            var confirm_password = document.validate.confirm.value;
+            var g = document.validate.Gender;
+            // var s = document.validate.sub;
+            if (f.length < 3) {
+                alert('first name should not be less than 3 character');
+                return false;
+            }
+            if (l.length < 1) {
+                alert('last name should not be less than 1 character');
+                return false;
+            }
+            if (pass.length < 3) {
+                alert('password must contain more than 3 character');
+                return false;
+            }
+            if (pass != confirm_password) {
+                alert('password and confirm password must be same.');
+                return false;
+            }
+            if ((g[0].checked == false) && (g[1].checked == false)) {
+                alert('Gender must be selected male or female');
+                return false;
+            }
+            if (document.validate.sub1.checked == false) {
+                alert('Any one skill must be selected.');
+                return false;
+            } else if (document.write.sub2.checked == false) {
+                alert('Any one skill must be selected.');
+                return false;
+            } else if (document.write.sub2.checked == false) {
+                alert('Any one skill must be selected.');
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Form Validation</h1>
+    <table>
+        <form action="prompt.html" name="validate" method="post" onsubmit="return validateForm();">
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" autocomplete="off" name="first"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" autocomplete="off" name="last"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" autocomplete="off" name="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password" autocomplete="off" name="confirm"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio" name="Gender" value="male">MALE</input>
+                    <input type="radio" name="Gender" value="female">FEMALE</input>
+                </td>
+            </tr>
+            <tr>
+                <td>Skills:</td>
+                <td><input type="checkbox" name="sub1" value="java">JAVA</input>
+                    <input type="checkbox" name="sub2" value="python">PYTHON</input>
+                    <input type="checkbox" name="sub3" value="javascript">JAVASCRIPT</input>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td><button type="submit" value="submit">Submit</button></td>
+                <td><button type="reset" value="reset">Reset</button></td>
+            </tr>
+        </form>
+    </table>
+</body>
+
+</html>
