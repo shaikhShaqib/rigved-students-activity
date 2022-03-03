@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>simple calc</h1>
+    <table>
+        <form action="#" name="calc">
+            <tr>
+                <td>Input1:<input type="text" name="fn"></td>
+            </tr>
+            <tr>
+                <td>Input2: <input type="text" name="sn"></td>
+            </tr>
+            <tr>
+                <td>Result:<input type="text" name="re"></td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td>
+                    <button type="button" onclick = "addNum()">Add</button>
+                    <button type="button" onclick = "subNum()">sub</button>
+                    <button type="button" onclick = "mulNum()">mul</button>
+                    <button type="button" onclick= "divNum()">div</button>
+                </td>
+            </tr>
+        </form>
+    </table>
+    <script type="text/javascript">
+        function addNum() {
+            var f = parseFloat(document.calc.fn.value);
+            var s = parseFloat(document.calc.sn.value);
+            var r;
+            r = f + s;
+            document.calc.re.value = r;
+        }
+        function subNum() {
+            var f = parseFloat(document.calc.fn.value);
+            var s = parseFloat(document.calc.sn.value);
+            var r;
+            r = f - s;
+            document.calc.re.value = r;
+        }
+        function mulNum() {
+            var f = parseFloat(document.calc.fn.value);
+            var s = parseFloat(document.calc.sn.value);
+            var r;
+            r = f * s;
+            document.calc.re.value = r;
+        }
+        function divNum() {
+            var f = parseFloat(document.calc.fn.value);
+            var s = parseFloat(document.calc.sn.value);
+            var r;
+            r = f / s;
+            document.calc.re.value = r;
+        }
+    </script>
+</body>
+
+</html>
