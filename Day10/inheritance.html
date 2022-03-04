@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+    <script type="text/javascript">
+        function person(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+        person.prototype.getName = function() {
+            return this.name;
+        }
+        person.prototype.getAge = function() {
+            return this.age;
+        }
+
+        function emp(id, name, age, salary) {
+            person.call(this,name,age);
+            this.id = id;
+            this.salary = salary;
+        }
+        emp.prototype = Object.create(person.prototype);
+        emp.prototype.getId = function () {
+            return this.id;
+        }
+        emp.prototype.getSalary = function() {
+            return this.salary;
+        }
+        var e = new emp(101, 'alex', 24, 30000);
+        document.write('<p>Name: '+e.getName()+', Age: '+e.getAge()+', Id: '+e.getId()+', Salary: '+e.getSalary()+'</p>');
+        var obj = new emp(102,'abhi',24,40000);
+        document.write('<p>Name: '+obj.getName()+', Age: '+obj.getAge()+', Id: '+obj.getId()+', Salary: '+obj.getSalary()+'</p>');
+    </script>
+
+</body>
+</html>
