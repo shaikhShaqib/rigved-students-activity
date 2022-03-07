@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Using canvas to make chess board</h1>
+        <canvas id="canvas" width="400px" height="400px" style="border: 2px solid black; margin-left: 20px;"></canvas>
+    </div>
+    <script type="text/javascript">
+
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+
+        for (i = 0; i < 8; i++) {
+            for (j = 0; j < 8; j++) {
+                ctx.moveTo(0, 50 * j);
+                ctx.lineTo(400, 50 * j);
+                ctx.stroke();
+                ctx.moveTo(50 * i, 0);
+                ctx.lineTo(50 * i, 400);
+                ctx.stroke();
+                var left = 0;
+                for (var a = 0; a < 8; a++) {
+                    for (var b = 0; b < 8; b += 2) {
+                        startX = b * 50;
+                        if (a % 2 == 0) startX = (b + 1) * 50;
+                        ctx.fillRect(startX + left, (a * 50), 50, 50);
+                    }
+                }
+            }
+        } 
+    </script>
+</body>
+
+</html>
