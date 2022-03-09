@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>page 1</h1>
+    <label>Name:</label><input type="text" name="n1" id="i1"><br />
+    <br />
+    <label>Age:</label><input type="number" name="a1" id="i2"><br />
+    <br />
+    <button type="button" onclick="save()">Save</button>&nbsp;
+    <a href="page2.html">next</a>
+
+    <script type="text/javascript">
+        function save() {
+            var input1 = document.getElementById('i1').value;
+            var input2 = document.getElementById('i2').value;
+            if (input1.length < 1) {
+                alert('please enter something');
+            } else {
+                sessionStorage.setItem('name',input1);
+                sessionStorage.setItem('age',input2);
+            }
+        }
+    </script>
+</body>
+
+</html>

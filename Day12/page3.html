@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Page 3</h1>
+    <label>Edit Age:</label><input type="number" name="a2" id="i3">
+    <br />
+    <br />
+    <button type="button" onclick="saveChanges()">Save</button>&nbsp;
+    <a href="page2.html">Prev</a>
+
+    <script type="text/javascript">
+        function saveChanges() {
+            var input = document.getElementById('i3').value;
+            data = sessionStorage.setItem('age',input);
+        }
+    </script>
+</body>
+</html>

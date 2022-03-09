@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Working with set and map collection in javascript</h1>
+    <script type="text/javascript">
+        // creating a set 
+        var s = new Set();
+        s.add('hii');
+        s.add('hello');
+        document.write('<p>size of set is: '+s.size+'</p>');
+        for (const v of s) {
+            document.write('<p>'+v+'</p>');
+        }
+        s.clear();
+        document.write('<p> after clear() the size is: '+s.size);
+
+        // creating a map
+        var m = new Map;
+        m.set('username', 'alex');
+        m.set('password', 'acsc1234');
+        document.write('<p> The size of map is: '+m.size+'</p>');
+        for (var k of m.keys()) {
+            document.write('<p>key: '+k+', value: '+m.get(k)+'</p>');
+        }
+    </script>
+</body>
+</html>
