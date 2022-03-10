@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Understanding Static keyword and Static function</h1>
+    <script type="text/javascript">
+        class employee{
+            static company = 'Rigved';
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+
+            static hello() {
+                document.write(`<p>This is a static function.`);
+            }
+
+            display() {
+                document.write(`<p>emp name is ${this.name}, emp age is ${this.age}, emp company name is ${employee.company}`);    
+            }
+        }
+        employee.hello();
+        var e = new employee('shaqib',22);
+        var e2 = new employee('anna',23);
+        e.display();
+        e2.display();
+    </script>
+</body>
+</html>

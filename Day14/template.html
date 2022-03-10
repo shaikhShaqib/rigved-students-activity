@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Template string literals</h1>
+    <script type="text/javascript">
+        let name = 'shaqib';
+        let age = 22;
+        document.write(`<p>Hello ${name}, your age is ${age}.`);
+        
+        let list = ['mango','apple','banana','grapes','pineapple'];
+        document.write(`<ul>`);
+        list.forEach(function(v,i) {
+            document.write(`<li>${v}</li>`);
+        });
+        document.write(`</ul>`);
+    </script>
+</body>
+</html>

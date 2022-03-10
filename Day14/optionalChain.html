@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Optional Chaining in javascript</h1>
+    <script type="text/javascript">
+        let user = [
+            {name: 'shaqib', age:22, address:{city: 'Thane', state:'Maharashtra'}},
+            {name: 'Anna', age:23},
+            {name: 'Evo', age:21, address:{city: 'Thane', state:'Maharashtra'}}
+        ]
+        for (let i = 0; i < user.length; i++) {
+            document.write(`<p>Name: ${user[i]?.name}, Age = ${user[i]?.age}, City = ${user[i]?.address?.city}, State = ${user[i]?.address?.state}`)
+        }
+    </script>
+</body>
+</html>
