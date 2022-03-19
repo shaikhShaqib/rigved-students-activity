@@ -1,0 +1,60 @@
+mysql> create table person(
+    -> Id int primary key auto_increment,
+    -> Name varchar(10) not null,
+    -> Gender varchar(10)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into person(Name,Gender) values('Raj','Male'), ('Alia','Female');
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from person;
++----+------+--------+
+| Id | Name | Gender |
++----+------+--------+
+|  1 | Raj  | Male   |
+|  2 | Alia | Female |
++----+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> delimiter #
+mysql> create procedure salu(IN pId int)
+    -> begin
+    -> declare g varchar(10);
+    -> declare n varchar(10);
+    -> select Name into n from person where Id = pId;
+    -> select Gender into g from person where Id = pId;
+    -> if g = 'Male'
+    -> then update person set Name = concat('Mr.',n) where Id = pId;
+    -> else update person set Name = concat('Ms.', n) where Id = pId;
+    -> end if;
+    -> end
+    -> #
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call salu(1)#
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from person#
++----+--------+--------+
+| Id | Name   | Gender |
++----+--------+--------+
+|  1 | Mr.Raj | Male   |
+|  2 | Alia   | Female |
++----+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> call salu(2)#
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from person#
++----+---------+--------+
+| Id | Name    | Gender |
++----+---------+--------+
+|  1 | Mr.Raj  | Male   |
+|  2 | Ms.Alia | Female |
++----+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql>

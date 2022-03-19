@@ -1,0 +1,97 @@
+mysql> create table user(Id int primary key, Name varchar(10), password varchar(20));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> create table user_history(Id int, Name varchar(10), old_password varchar(20), Modification_Time time);
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> desc user;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Id       | int         | NO   | PRI | NULL    |       |
+| Name     | varchar(10) | YES  |     | NULL    |       |
+| password | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> desc user_history;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| Id                | int         | YES  |     | NULL    |       |
+| Name              | varchar(10) | YES  |     | NULL    |       |
+| old_password      | varchar(20) | YES  |     | NULL    |       |
+| Modification_Time | time        | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> delimiter //
+mysql> insert into user values(1,'Alex','alex123'), (2,'Bruce','bruce123');
+    -> //
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from user//
++----+-------+----------+
+| Id | Name  | password |
++----+-------+----------+
+|  1 | Alex  | alex123  |
+|  2 | Bruce | bruce123 |
++----+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from user_history//
+Empty set (0.00 sec)
+
+mysql> create trigger update_user_history
+    -> after update on user for each row
+    -> begin
+    -> insert into user_history(Id, Name, old_password, Modification_Time) values(old.Id, old.Name, old.password, current_time());
+    -> end
+    -> //
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from user;//
++----+-------+----------+
+| Id | Name  | password |
++----+-------+----------+
+|  1 | Alex  | alex123  |
+|  2 | Bruce | bruce123 |
++----+-------+----------+
+2 rows in set (0.08 sec)
+
+mysql> update user set password = 'alex007' where Id = 1;//
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from user_history;//
++------+------+--------------+-------------------+
+| Id   | Name | old_password | Modification_Time |
++------+------+--------------+-------------------+
+|    1 | Alex | alex123      | 13:30:48          |
++------+------+--------------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> update user set password = 'bruce60' where Id = 2;//
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from user_history;//
++------+-------+--------------+-------------------+
+| Id   | Name  | old_password | Modification_Time |
++------+-------+--------------+-------------------+
+|    1 | Alex  | alex123      | 13:30:48          |
+|    2 | Bruce | bruce123     | 13:31:59          |
++------+-------+--------------+-------------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from user;//
++----+-------+----------+
+| Id | Name  | password |
++----+-------+----------+
+|  1 | Alex  | alex007  |
+|  2 | Bruce | bruce60  |
++----+-------+----------+
+2 rows in set (0.01 sec)
+
+mysql>
