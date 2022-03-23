@@ -1,0 +1,148 @@
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+myDb    0.000GB
+
+> use myDb;
+switched to db myDb
+
+> show collections;
+EMPLOYEE
+employee
+user
+
+> db.user.count();
+5
+
+> db.user.find();
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhiram_Bachchan" }
+{ "_id" : 5, "Name" : "Anna", "Password" : "Anna123" }
+
+> db.user.deleteOne({_id: 5});
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+> db.user.find();
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhiram_Bachchan" }
+
+> db.user.updateOne({_id: 4},{$set:{Password:'Abhi007'}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.user.find();
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+> db.user.find({_id: 2});
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+
+> db.user.find({Name: 'Abhiram'});
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+> db.user.find({},{Password:0});
+{ "_id" : 1, "Name" : "Alex" }
+{ "_id" : 2, "Name" : "Bruce" }
+{ "_id" : 3, "Name" : "David" }
+{ "_id" : 4, "Name" : "Abhiram" }
+
+> db.user.find({},{Password: 0, _id: 0});
+{ "Name" : "Alex" }
+{ "Name" : "Bruce" }
+{ "Name" : "David" }
+{ "Name" : "Abhiram" }
+
+> db.user.find().sort({Name: 1});
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+
+> db.user.find().sort({Name: -1});
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+> db.user.find().limit(1);
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+
+> db.user.find().limit(3);
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+
+> db.user.find({$or:[{'Name':'Alex'},{_id: 2}]});
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+
+> db.user.find({$and:[{'Name':'David'},{_id: 3}]});
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+
+> db.user.find({_id:{$in:[2,3]}});
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+
+> db.user.find({_id:{$lt: 3}});
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+
+> db.user.find({_id:{$gt: 3}});
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+> db.user.find({_id:{$gte: 3}});
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+> db.user.find({_id:{$lte: 3}});
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+
+> db.user.find({_id:{$in: [2,3]}});
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 3, "Name" : "David", "Password" : "David123" }
+
+> db.user.find({_id:{$nin: [2,3]}});
+{ "_id" : 1, "Name" : "Alex", "Password" : "Alex123" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+> db.user.find({$nor:[{_id:3},{'Name': 'Alex'}]});
+{ "_id" : 2, "Name" : "Bruce", "Password" : "Bruce007" }
+{ "_id" : 4, "Name" : "Abhiram", "Password" : "Abhi007" }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
