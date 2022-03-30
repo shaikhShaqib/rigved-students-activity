@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h2>Client using Socket Io</h2>
+    <div>Message: <input type="text" id="i1"></div>
+    <button onclick="send()">Send</button>
+    <div id="d1"></div>
+    <!-- imp script to connect client to the server-->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+        var socket = io(); // tries to connect to the server
+        const display = document.getElementById('d1');
+
+        // when u click on the button then the data will be send.
+        function send() {
+            const inputText = document.getElementById('i1').value;
+            socket.emit('msg', inputText);
+            input.value = "";
+        }
+
+        let readMsg = (msg) => {
+            var div = document.createElement('div');
+            div.classList.add('render-msg');
+            div.innerText = msg;
+            display.appendChild(div);
+        }
+
+        socket.on('msg', (message) => {
+            readMsg(message);
+        });
+
+    </script>
+</body>
+</html> 
