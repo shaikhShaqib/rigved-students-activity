@@ -1,0 +1,12 @@
+<div>
+    <p>Username: {{username}}</p>
+    <p>Hello {{username | uppercase}}</p>
+    <p>Default Date : {{dob}}</p>
+    <p>Formatting Date : {{dob | date}}</p>
+    <p>Custom Date : {{dob | date: '09-03-2000'}}</p>
+    <p>Amount: {{amount}}</p>
+    <p>US currency: {{amount | currency}}</p>
+    <p>Indian currency: {{amount | currency: 'INR'}}</p>
+    <h3>Custom Pipe</h3>
+    <!-- <p>length of the username: {{username | size}}</p> -->
+</div>

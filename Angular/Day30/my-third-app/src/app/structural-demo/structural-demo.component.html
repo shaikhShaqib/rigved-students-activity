@@ -1,0 +1,16 @@
+<div>
+    <h1>structural-demo!</h1>
+    <h3>*ngif demo!</h3>
+    <p>Message: {{message}}</p>
+    <p *ngif = 'status'>Status: {{status}}</p>
+    <p>Exits: {{exits}}</p>
+    <p *ngif = 'info'>Information: {{info}}</p>
+    <h3>*ngfor demo!</h3>
+    <div>Courses: {{courses}}</div>
+    <div>
+        <ul>
+            <li *ngFor = 'let i of courses'>{{i}}</li>
+        </ul>
+    </div>
+        
+</div>
