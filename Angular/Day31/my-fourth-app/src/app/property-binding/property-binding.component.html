@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <button (click) = 'toggle()'>Toggle</button>
+    <p>In Progress: {{inProgress}}</p>
+    <button [disabled] = 'inProgress'>Update</button>
+    <p [hidden] = 'inProgress'>This is a content to use inProgress</p>
+</div>
