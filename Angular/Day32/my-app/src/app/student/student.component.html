@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <h2>Student Table</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Roll-No</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = 'let i of stud'>
+                <td>{{i.rollNo}}</td>
+                <td>{{i.name}}</td>
+                <td *ngIf="i.marks >= 40; else elseBlock"><p [style]="{'color':'green'}">{{i.marks}}</p></td>
+                <ng-template #elseBlock><p [style]="{'color':'red'}">{{i.marks}}</p></ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>
