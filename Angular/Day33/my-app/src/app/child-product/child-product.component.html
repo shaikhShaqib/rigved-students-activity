@@ -1,0 +1,8 @@
+<div id="d1"> 
+    <div *ngFor="let prod of products">
+        <p>Name: {{prod.name}}</p>
+        <p>Price: {{prod.price}}</p>
+        <button (click)="add(prod.price)">+</button>&nbsp;
+        <button (click)="remove(prod.price)">-</button>
+    </div>
+</div>
