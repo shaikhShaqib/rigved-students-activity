@@ -1,0 +1,9 @@
+<div>
+    <h2>Angular Form demo</h2>
+    <form #user = "ngForm" (ngSubmit) = "formSubmit(user.value)">
+        <p>FirstName: <input type = "text" name = "fn" ngModel autocomplete = "off"></p>
+        <p>LastName: <input type = "text" name = "ln" ngModel autocomplete = "off"></p>
+        <p>Phone: <input type = "number" name = "pn" ngModel autocomplete = "off"></p>
+        <input type = "submit" value = "submit">
+    </form>
+</div>

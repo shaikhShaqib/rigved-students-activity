@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <h2>User Registraion Form</h2>
+    <form #regi="ngForm" (ngSubmit)="formValues(regi.value)">
+
+        <p>
+            FirstName: <input type="text" name="fn" #i1="ngModel" ngModel autocomplete="off" minlength="4"
+                required>&nbsp;
+            <span [hidden]="i1.valid || i1.pristine" class="text-danger">*FirstName must be more than 4 or equal to 4
+                character</span>
+        </p>
+
+        <p>
+            LastName: <input type="text" name="ln" #i2="ngModel" ngModel autocomplete="off" minlength="2"
+                required>&nbsp;
+            <span [hidden]="i2.valid || i2.pristine" class="text-danger">*LastName must be more than 2 or equal to 2
+                character</span>
+        </p>
+
+        <p>
+            Gender: <input type="radio" name="gn" value="Male" #g="ngModel" ngModel required> Male
+            &nbsp;
+            <input type="radio" name="gn" value="Female" #g="ngModel" ngModel required> Female
+            &nbsp;
+            <span [hidden]="g.valid || g.pristine" class="text-danger">*must choose anyone</span>
+        </p>
+
+        <p>
+            Skills: <input type="checkbox" name="sk" value="Java" #s="ngModel" ngModel required> Java
+            <input type="checkbox" name="sk" value="Python" #s="ngModel" ngModel required> Python
+            <input type="checkbox" name="sk" value="C++" #s="ngModel" ngModel required> C++
+            <input type="checkbox" name="sk" value="C" #s="ngModel" ngModel required> C &nbsp;
+            <span [hidden]="s.valid || s.pristine" class="text-danger">*choose anyone</span>
+        </p>
+
+        <p>
+            Qualification: <select name="qf" #q="ngModel" ngModel required>
+                <option value="Bsc-It">Bsc-It</option>
+                <option value="Bsc-cs">Bsc-cs</option>
+                <option value="Btech">Btech</option>
+                <option value="Mtech">Mtech</option>
+            </select>&nbsp;
+            <span [hidden]="q.valid || q.pristine" class="text-danger">*Choose anyone</span>
+        </p>
+
+        <p>
+            Address: <textarea name="add" #a="ngModel" ngModel required></textarea>&nbsp;
+            <span [hidden]="a.valid || a.pristine" class="text-danger">*Address must be filled</span>
+        </p>
+
+        <p><button type="submit" value="Registed" [disabled]="regi.invalid" class="btn btn-primary" (click)="show()">Submit</button></p>
+    </form>
+</div>
+
+<div [hidden]="hide" class="container-fluid" id="d2"> 
+    <p>First Name: {{firstname}}</p>
+    <p>Last Name: {{lastname}}</p>
+    <p>Gender: {{gender}}</p>
+    <p>Skill: {{skill}}</p>
+    <p>Qualification: {{qualification}}</p>
+    <p>Address: {{address}}</p>
+</div>

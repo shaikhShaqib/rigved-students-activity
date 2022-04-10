@@ -1,0 +1,18 @@
+<form #login="ngForm" (ngSubmit)="handleSubmit(login.value)">
+    <div>
+        <p> UserName: <input type="text" name="un" ngModel autocomplete="off" required></p>
+    </div>
+    <div>
+        <p>Password: <input type="password" name="pw" ngModel autocomplete="off" required></p>
+    </div>
+    <div>
+        <input type="submit" value="Login" [disabled]="login.invalid">
+    </div>
+</form>
+<div class="text-danger" [hidden]="login.valid || login.pristine">
+    *UserName and Password is mandatory.
+</div>
+<p>Value: {{login.value | json}}</p>
+<p>valid: {{login.valid}}</p>
+<p>invalid: {{login.invalid}}</p>
+<p>pristine: {{login.pristine}}</p>

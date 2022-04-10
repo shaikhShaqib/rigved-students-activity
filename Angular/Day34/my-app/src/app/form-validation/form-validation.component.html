@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <h2>Form Validation</h2>
+    <form #user="ngForm" (ngSubmit)="formValidation(user.value)">
+        <div>
+            <p>FirstName: <input type="text" name="fn" ngModel #i1="ngModel" autocomplete="off" required minlength="4">
+            &nbsp;<span [hidden]="i1.valid || i1.pristine" class="text-danger">*FirstName must be more than 4 character</span></p>
+            <p>LastName: <input type="text" name="ln" #i2="ngModel" ngModel autocomplete="off" minlength="3" required>
+            &nbsp;<span [hidden]="i2.valid || i2.pristine" class="text-danger">*LastName must be more than 3 character</span></p>
+            <p><input type="submit" name="submit" [disabled]="user.invalid" class="btn btn-primary"></p>
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <p>i1 value: {{i1.value | json}}</p>
+    <p>i1 valid: {{i1.valid}}</p>
+    <p>i1 invalid: {{i1.invalid}}</p>
+    <p>i1 pristine: {{i1.pristine}}</p>
+
+</div>
