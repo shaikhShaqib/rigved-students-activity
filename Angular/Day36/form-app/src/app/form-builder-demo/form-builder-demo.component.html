@@ -1,0 +1,11 @@
+<div>
+    <h2>Form Builder Demo!</h2>
+    <form [formGroup]="profile" (ngSubmit)="handleSubmit()">
+        <p>FirstName: <input type="text" formControlName="firstname"></p>
+        <p>LastName: <input type="text" formControlName="lastname"></p>
+        <p><button type="submit" value="submit" [disabled]="profile.invalid">Submit</button></p>
+    </form>
+</div>
+<div>
+    <p>profile value: {{profile.value | json}}</p>
+</div>

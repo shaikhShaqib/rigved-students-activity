@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <h2>Form Control Demo!</h2>
+    <form (ngSubmit)="handleSubmit()">
+        <div>
+            <p>
+                <label>FirstName: </label>
+                <input type="text" [formControl]="firstname">
+                <span [hidden]="firstname.valid || firstname.pristine" class="text-danger"> *please enter
+                    character's</span>
+            </p>
+        </div>
+        <div>
+            <p>
+                <label>LastName: </label>
+                <input type="text" [formControl]="lastname">
+                <span [hidden]="lastname.valid || lastname.pristine" class="text-danger"> *please enter character's between 4 to 10</span>
+            </p>
+        </div>
+        <div>
+            <button type="submit" value="submit" [disabled]="firstname.invalid || lastname.invalid">Submit</button>
+        </div>
+    </form>
+    <div>
+        <p>FirstName value: {{firstname.value}}</p>
+        <p>LastName value: {{lastname.value}}</p>
+    </div>
+</div>
