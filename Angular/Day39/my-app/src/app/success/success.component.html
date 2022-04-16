@@ -1,0 +1,17 @@
+<div>
+    <h3>Success component</h3>
+    <div *ngIf = "username">
+        Hello, {{username}}
+    </div>
+    <div>
+        Please Click on the below Link's
+    </div>
+    <div>
+        <a routerLink = "dashboard">Dashboard</a> |
+        <a routerLink = "search">search</a> |
+        <a routerLink = "list">List</a> |
+        <a routerLink = "/login">Login</a>
+    </div>
+    <br />
+    <router-outlet></router-outlet>
+</div>
