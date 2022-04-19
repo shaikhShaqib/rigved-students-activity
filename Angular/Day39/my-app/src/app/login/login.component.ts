@@ -12,12 +12,14 @@ export class LoginComponent implements OnInit {
   constructor(private _router: Router) { }
 
   ngOnInit(): void {
+    sessionStorage.clear(); //use to clear the session storage.
   }
 
   userName = new FormControl('');
 
   handleLogin() {
     let name = this.userName.value;
+    sessionStorage.setItem('un', name); // stores the name in the session storage.
     this._router.navigate(['success', name]); //success/:name
   }
 

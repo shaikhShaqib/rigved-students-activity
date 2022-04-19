@@ -1,0 +1,17 @@
+<div>
+    <h2>Update User</h2>
+    <form (ngSubmit) = "handleSubmit()">
+        <p>
+            Id: <input type="number" [formControl] = "id">
+        </p>
+        <p>
+            Age: <input type="number" [formControl] = "age">
+        </p>
+        <p>
+            <input type="Submit" value = "Update">
+        </p>
+    </form>
+</div>
+<div>
+    <p *ngIf = "updatedUser">Updated SuccessFully: {{updatedUser | json}}</p>
+</div>

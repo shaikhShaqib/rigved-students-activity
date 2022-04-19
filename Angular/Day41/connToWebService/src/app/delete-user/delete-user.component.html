@@ -1,0 +1,13 @@
+<div>
+    <h3>Delete User with Id.</h3>
+    <P>
+        Id: <input type = "number" [formControl] = "Id">
+    </P>
+    <p>
+        <input type = "submit" value = "Delete" (click) = "handleSubmit()">
+    </p>
+</div>
+<br />
+<div>
+    <p *ngIf = "deleteUser">Deleted Successfully : {{deleteUser | json}}</p>
+</div>

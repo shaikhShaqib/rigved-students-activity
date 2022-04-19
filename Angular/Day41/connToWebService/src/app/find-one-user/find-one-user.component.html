@@ -1,0 +1,10 @@
+<div>
+    <h2>Find User With Id.</h2>
+    <p>Id: <input type="number" [formControl] = "id"></p>
+    <input type="submit" value="Find" (click)="handleSubmit()">
+</div>
+<br />
+<div>
+    <p *ngIf = "FindUser">User: {{FindUser | json}}</p>
+    <p *ngIf = "errorMsg">Error: {{errorMsg}}</p>
+</div>

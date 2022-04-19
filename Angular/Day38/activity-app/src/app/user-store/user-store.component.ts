@@ -19,12 +19,14 @@ export class UserStoreComponent implements OnInit {
   profileForm: FormGroup = this.builder.group({
     name:['', Validators.required],
     gender:['', Validators.required],
-    phoneNo:['',Validators.compose([Validators.maxLength(10),Validators.required,Validators.minLength(10)])],
+    phoneNo:['', Validators.compose([Validators.maxLength(10), Validators.required, 
+      Validators.minLength(10)])],
     emailId:['', Validators.required],
     address:this.builder.group({
       state:['', Validators.required],
       city:['', Validators.required],
-      pin:['',Validators.compose([Validators.required,Validators.maxLength(6),Validators.minLength(6)])]
+      pin:['',Validators.compose([Validators.required, Validators.maxLength(6), 
+        Validators.minLength(6)])]
     })
   })
 
@@ -33,7 +35,4 @@ export class UserStoreComponent implements OnInit {
     this._router.navigate(['success',this.profileForm.value.name]);
     this.profileForm.reset({});
   }
-  
-  
-
 }

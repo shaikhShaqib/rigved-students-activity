@@ -40,25 +40,6 @@ app.get("/users", (request, response) => {
     });
 });
 
-// on POST:/users you must able to store the user object
-app.post("/users", (request,response) => {
-    let userDoc = request.body;
-    mongoClient.connect(dbUrl, {useNewUrlParser: true}, (error, client) => {
-        if (error) throw error;
-        // connect to the database instance
-        let db = client.db("mydb");
-        // use the collection user to insert the document
-        db.collection('user').insertOne(userDoc, (err, result) => {
-            if (err) {
-                // 409 status code is for conflict
-                response.status(409).json({"message": `User with an id ${userDoc._id} exists`});
-            }
-            response.status(201).json(result);
-            client.close();
-        });
-    });
-});
-
 // on GET:/users/:id to get a single document based on id
 app.get("/users/:id", (request, response) => {
     // reding the path parameter and converting id to int.
@@ -73,6 +54,25 @@ app.get("/users/:id", (request, response) => {
             } else {
                 response.status(404).json({"messsage": `sorry ${Id} doesn't exits`});
             }
+            client.close();
+        });
+    });
+});
+
+// on POST:/users you must able to store the user object
+app.post("/users", (request,response) => {
+    let userDoc = request.body;
+    mongoClient.connect(dbUrl, {useNewUrlParser: true}, (error, client) => {
+        if (error) throw error;
+        // connect to the database instance
+        let db = client.db("mydb");
+        // use the collection user to insert the document
+        db.collection('user').insertOne(userDoc, (err, result) => {
+            if (err) {
+                // 409 status code is for conflict
+                response.status(409).json({"message": `User with an id ${userDoc._id} exists`});
+            }
+            response.status(201).json(result);
             client.close();
         });
     });

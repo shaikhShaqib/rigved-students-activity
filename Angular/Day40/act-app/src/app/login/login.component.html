@@ -1,0 +1,11 @@
+<div>
+    <h2>Login Page</h2>
+    <form (ngSubmit) = "handleLogin()">
+        <label>UserName</label> <input type = "text" [formControl] = "username" class="form-control">
+        <label>Password</label> <input type = "password" [formControl] = "password" class="form-control">
+        <br />
+        <input type="submit" value="submit" class="btn btn-primary">
+    </form>
+    <br />
+    <a routerLink="/register">Register</a>
+</div>

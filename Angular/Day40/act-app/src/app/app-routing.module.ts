@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from './authentication.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ItemsComponent } from './items/items.component';
+import { DislikeComponent } from './dislike/dislike.component';
+import { LikeComponent } from './like/like.component';
 import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
-import { SearchComponent } from './search/search.component';
 import { SuccessComponent } from './success/success.component';
 
 const routes: Routes = [
-  {path: "", component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: "login", component: LoginComponent},
-  {path: "register", component: RegisterComponent},
-  {path: "success/:name", component: SuccessComponent, canActivate: [AuthenticationGuard], children: [
-    {path: "", component: DashboardComponent},
-    {path: "dashboard", component: DashboardComponent},
-    {path: "search", component: SearchComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'success/:name/:password', component: SuccessComponent, canActivate: [AuthenticationGuard], children: [
+    // {path: '', component: ListComponent},
+    {path: 'logout', component: LogoutComponent},                     
     {path: "list", component: ListComponent, children: [
-      {path: "items", component: ItemsComponent}
-    ]},
-  ]},
+      {path: 'like', component: LikeComponent},
+      {path: 'dislike', component: DislikeComponent},
+    ]}
+  ]}
 ];
 
 @NgModule({

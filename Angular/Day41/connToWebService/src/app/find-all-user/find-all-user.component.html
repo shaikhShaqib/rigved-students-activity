@@ -1,0 +1,21 @@
+<div>
+    <h2>Find All Users.</h2>
+    <br />
+    <button (click) = "handleClick()">Refresh</button>
+    <div>
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <td>ID</td><td>Name</td><td>Age</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let user of users">
+                    <td>{{user._id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
